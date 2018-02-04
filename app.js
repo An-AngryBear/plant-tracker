@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-var helmet = require('helmet')
+var helmet = require('helmet');
 const app = express();
 const passport = require('passport')
 var session = require('express-session');
@@ -9,12 +9,12 @@ var methodOverride = require('method-override')
 let bodyParser = require('body-parser');
 const flash = require('express-flash');
 let pg = require('pg');
+var path = require('path');
 
 require('dotenv').config();
-const port = process.env.PORT || 4000;
 
 // security
-app.use(helmet())
+app.use(helmet());
 
 // CSP
 app.use(helmet.contentSecurityPolicy({
@@ -22,7 +22,7 @@ app.use(helmet.contentSecurityPolicy({
         defaultSrc: ["'self'"],
         styleSrc: ["'unsafe-inline'", "'self'"],
         imgSrc: ['*'],
-        connectSrc: ["'self'", 'ws:', 'https://cors-anywhere.herokuapp.com']
+        connectSrc: ["'self'", 'ws:']
     }
 }));
 
@@ -37,11 +37,11 @@ app.use(function (req, res, next) {
 app.use(methodOverride('_method'));
 
 //settings
-app.set('models', require('./models'));
-app.set('view engine', 'pug');
+// app.set('models', require('./models'));
 
-//access to public folder
-app.use('/public', express.static(__dirname + '/public'));
+//access to client folder
+app.use('/client', express.static(path.join(__dirname, 'client')));
+app.use('/js', express.static(path.join(__dirname, 'client/dist/js')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 let routes = require('./routes/');
@@ -86,3 +86,4 @@ app.use((err, req, res, next) => {
 });
 
 let server = app.listen(process.env.PORT || 3000);
+console.log("server up")
