@@ -1133,7 +1133,7 @@ var FormContainer = function (_Component) {
                 "form",
                 { id: "article-form" },
                 _react2.default.createElement(_Input2.default, {
-                    text: "SEO title",
+                    text: "Enter Plant Name",
                     label: "seo_title",
                     type: "text",
                     id: "seo_title",
