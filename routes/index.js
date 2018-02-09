@@ -11,5 +11,7 @@ router.get('/', (req, res, next) => {
 
 // route modules
 
+router.use(require('./scrape'));
+
 module.exports = router;
 
