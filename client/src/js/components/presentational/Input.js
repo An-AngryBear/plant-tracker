@@ -11,6 +11,7 @@ const Input = ({ label, text, type, id, value, handleChange }) => (
             onChange={handleChange}
             required
         />
+        <button type="submit" href="/scrape">click</button>
     </div>
 );
 Input.propTypes = {

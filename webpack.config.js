@@ -30,5 +30,6 @@
           template: "./client/src/static/index.html",
           filename: "./index.html"
         })
-      ]
+      ],
+      watch: true
     };

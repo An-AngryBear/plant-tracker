@@ -18485,7 +18485,12 @@ var Input = function Input(_ref) {
             value: value,
             onChange: handleChange,
             required: true
-        })
+        }),
+        _react2.default.createElement(
+            "button",
+            { type: "submit", href: "/scrape" },
+            "click"
+        )
     );
 };
 Input.propTypes = {
