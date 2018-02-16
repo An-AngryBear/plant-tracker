@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Input from "../presentational/Input";
+import { webScrape } from '../../factories/Scraper-Factory'
 class FormContainer extends Component {
     constructor() {
         super();
@@ -15,7 +16,7 @@ class FormContainer extends Component {
     render() {
         const { seo_title } = this.state;
         return (
-            <form id="article-form">
+            <form id="article-form" >
                 <Input
                     text="Enter Plant Name"
                     label="seo_title"
@@ -24,6 +25,7 @@ class FormContainer extends Component {
                     value={seo_title}
                     handleChange={this.handleChange}
                 />
+                <button type="submit" onClick={webScrape} >click</button>
             </form>
         );
     }
