@@ -5,6 +5,6 @@ const router = Router();
 
 const { scraper } = require('../controllers/scrape');
 
-router.get('/scrape', scraper);
+router.get('/scrape/:entry', scraper);
 
 module.exports = router;
