@@ -6,15 +6,27 @@ var cheerio = require('cheerio');
 
 module.exports.scraper = (req, res, next) => {
      
-    let url = 'https://garden.org/plants/view/537808/Hen-and-Chicks-Sempervivum-Ursuline/';
+    let userEntry = req.params.entry;
+    let query ;
+    let url = `https://davesgarden.com/sitewidesearch.php?q=${userEntry}`;
 
-    request(url, function (error, response, html) {
+    let options = {
+        headers: { 'user-agent': 'node.js' }
+    }
+    request(url, options, function (error, response, html) {
         if (!error) {
-            // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
             let $ = cheerio.load(html);
-            // Finally, we'll define the letiables we're going to capture
-            let soilType, water, pests;
-            let json = { soilType: "", water: "", pests: "" };
+            let commonName;
+            let json = [];
+            $('p:contains("PlantFiles")').next().find('a').each(function () {
+                let plantData = $(this).contents()[0].data;
+                let plantURL = $(this).attr('href');
+                let sciName = $(this).find('i').text();
+                if(plantData) {
+                    json.push({ commonName: plantData.replace(/\'/, '(').replace(/\'/, ')'), plantURL, sciName} );
+                }
+            });
+            console.log("JSON", json)
         }
     })
 }
