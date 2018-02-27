@@ -4,12 +4,11 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 
-module.exports.scraper = (req, res, next) => {
-     
+module.exports.plantSearch = (req, res, next) => {
     let userEntry = req.params.entry;
-    let query ;
-    let url = `https://davesgarden.com/sitewidesearch.php?q=${userEntry}`;
-
+    let query;
+    let urlStart = process.env.SEARCH_URL;
+    let url = urlStart + userEntry;
     let options = {
         headers: { 'user-agent': 'node.js' }
     }

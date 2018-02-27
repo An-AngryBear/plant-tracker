@@ -3,8 +3,8 @@
 const { Router } = require('express');
 const router = Router();
 
-const { scraper } = require('../controllers/scrape');
+const { plantSearch } = require('../controllers/scrape');
 
-router.get('/scrape/:entry', scraper);
+router.get('/scrape/search/:entry', plantSearch);
 
 module.exports = router;
