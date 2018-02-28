@@ -19,8 +19,8 @@ app.use(helmet());
 // CSP
 app.use(helmet.contentSecurityPolicy({
     directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'unsafe-inline'", "'self'"],
+        // defaultSrc: ["'self'"],
+        // styleSrc: ["'unsafe-inline'", "'self'"],
         imgSrc: ['*'],
         connectSrc: ["'self'", 'ws:']
     }

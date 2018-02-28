@@ -1,0 +1,55 @@
+/* LANDING PAGE */
+
+.home-container {
+    height: 100vh;
+    width: 100%;
+    background: url('/client/imgs/seedling.jpeg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-intro {
+    max-width: 300px;
+}
+
+p {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 1px 1px slategrey, -1px -1px slategrey;
+}
+
+.landing-title {
+    font-family: 'Berkshire Swash', cursive;
+    color: white;
+    font-size: 3.2em;
+    text-shadow: 1px 1px #000000;;
+}
+
+.get-started {
+    border: 2px solid white;
+    background-color: #11ffee00;
+    padding: 10px 20px 5px 20px;
+    color: white;
+    font-size: 2em;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.get-started:hover {
+    background-color: white;
+    color: slategrey;
+    transition-duration: .5s;
+}
+
+@media (min-width: 600px) {
+    .site-intro {
+        max-width: 600px;
+    }
+}
+
