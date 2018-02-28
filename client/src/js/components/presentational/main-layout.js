@@ -8,7 +8,11 @@ import createReactClass from 'create-react-class';
 const MainLayout = createReactClass({
     render: function() {
         return (
-            <FormContainer/>
+            <div>
+                <main>
+                    {this.props.children}
+                </main>
+            </div>
         );
     }
 });

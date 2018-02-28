@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import Input from "../presentational/Input";
 import { plantSearch } from '../../factories/Scraper-Factory'
 class FormContainer extends Component {
